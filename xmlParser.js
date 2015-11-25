@@ -44,17 +44,12 @@ function ReadInput() {
             display += '<td>' + "<input type=\"text\" value=\"" + nameField + "\" />" + '</td>';
             display += '<td>' + "<input type=\"text\" value=\"" + descriptionField + "\" />" + '</td>';
             display += '<td>' + typeField + '</td>';
-            display += "<td><input type=\"image\" src=\"/imgpreview.jpg\" width=\"30\" onclick=\"deleteRow(this)\"></td>";
+            display += "<td><input type=\"image\" src=\"/RedButton.jpg\" width=\"30\" onclick=\"deleteRow(this)\"></td>";
             display += '</tr>';
         }
         document.getElementById('id_Table').innerHTML = display;
     }
 }
-
-
-
-
-
 
 function initializeType(str) {
     if (str.indexOf('String') > -1) {
@@ -102,11 +97,8 @@ function CreateRow() {
     var newColumn = newRow.insertCell(CELL_Number);
     newColumn.innerHTML = " <select id=\"SelType\" size=\"2\" onchange=\"SelectChanging( this )\" ><option>String</option><option>Int</option><option>Boolean</option></select>"
     newColumn = newRow.insertCell(CELL_Number + 1);
-    newColumn.innerHTML = " <input type=\"image\" src=\"/imgpreview.jpg\" width=\"30\" onclick=\"deleteRow(this)\">"
+    newColumn.innerHTML = " <input type=\"image\" src=\"/RedButton.jpg\" width=\"30\" onclick=\"deleteRow(this)\">"
 }
-
-
-
 
 function SelectChanging(select) {
     var table = document.getElementById('id_Table');
@@ -126,18 +118,10 @@ function SelectChanging(select) {
     cell.innerHTML = getFieldType(select.value, value);
 }
 
-
-
-
-
-
 function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
     document.getElementById('id_Table').deleteRow(i);
 }
-
-
-
 
 function download(name, typeOfFile) {
     var text = getOutputFile();
@@ -155,9 +139,6 @@ function download(name, typeOfFile) {
     document.body.removeChild(link);
 
 }
-
-
-
 
 
 function getOutputFile() {
@@ -212,12 +193,10 @@ function getOutputFile() {
 
 
 
-
         if ((isValueValid(allColumns[3].childNodes[0], type) === true) && (type === 'System.Boolean')) {
             allColumns[3].childNodes[0].setAttribute('id', 'complete');
             isBool = true;
         }
-
 
         if ((isValueValid(allColumns[3].childNodes[0], type) === true)) {
             switch (type) {
@@ -269,15 +248,6 @@ function getOutputFile() {
 }
 
 
-
-
-
-
-
-
-
-
-
 function isValueValid(value, type) {
     switch (type) {
         case 'System.String':
@@ -313,8 +283,6 @@ function isValueValid(value, type) {
     }
 }
 
-
-
 function checkFieldForNumber(field) {
     if (field.getAttribute('value').length < 2) {
         field.setAttribute("value", field.value);
@@ -327,17 +295,4 @@ function checkFieldForNumber(field) {
     }
     field.setAttribute("value", field.value);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
